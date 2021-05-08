@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="org.soomgo.lji.model.mapper.ProductMapper">
+ 	<select id="totalProductNum" resultType = "int">
+ 		select count(*) from web_prodcut
+ 	</select>
+ 	<select id="showAllStock" resultType = "int">
+ 		select sum(STOCK) from web_product
+ 	</select>
+ </mapper>

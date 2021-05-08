@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- dbcp, mybatis 연동설정  -->
+<bean id="dbcp" class="org.apache.commons.dbcp2.BasicDataSource">
+	<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+	<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
+	<property name="username" value="C##scott"/>
+	<property name="password" value="tiger"/>
+</bean>
+<!-- mybatis와 spring 연동 설정 -->
+<!-- @Mapper 어노테이션을 이용해 Proxy 객체(DAOImpl)를 생성하게 하는 설정  -->
+<mybatis-spring:scan base-package="org.soomgo.lji.model.mapper"/>
+<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+<property name="dataSource" ref="dbcp" />
+<!-- Mapper 어노테이션 적용하여 자동으로 DAO 구현체를 생성할 때는 아래 설정은 필요없다 -->
+<!-- <property name="mapperLocations" value="classpath:/mybatis/config/*.xml"/> -->
+<!-- org.kosta.model.vo 팩키지 아래의 클래스는 모두 자동으로 소문자로 시작하는 
+	 클래스명으로 별칭을 주도록 설정 ex) org.kosta.model.vo.ProductVO의 별칭은  productVO로! 
+  -->
+<property name="typeAliasesPackage" value="org.soomgo.lji.domain"></property>
+
+<property name="configuration">
+	<bean class="org.apache.ibatis.session.Configuration">
+		<property name="mapUnderscoreToCamelCase" value="true"/>
+	</bean>
+</property>
+</bean>
+<!-- MyBatis Spring 연동시 개발 생산성을 위해 SqlSessionTemplate 클래스를 이용
+	 SqlSessionTemplate 은 선언적 방식의 트랜잭션 제어를 지원 ( AOP 기반 Transaction 제어)
+ -->
+ <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+ 	<constructor-arg ref="sqlSessionFactoryBean"/>
+ </bean>
+ <!-- IOC 설정  -->
+<context:component-scan base-package="org.kosta"/>
+
+</beans>
