@@ -5,7 +5,7 @@
 
  <mapper namespace="org.soomgo.lji.model.mapper.ProductMapper">
  	<select id="totalProductNum" resultType = "int">
- 		select count(*) from web_prodcut
+ 		select count(*) from web_product
  	</select>
  	<select id="showAllStock" resultType = "int">
  		select sum(STOCK) from web_product

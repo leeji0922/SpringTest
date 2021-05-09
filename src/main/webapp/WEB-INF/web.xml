@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<welcome-file-list>
     	<welcome-file>/home.do</welcome-file>  
-  </welcome-file-list>
+  	</welcome-file-list>
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name> <!-- 디스패치 서블릿 -->

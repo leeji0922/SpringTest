@@ -26,3 +26,8 @@ create table web_user2(
 )
 
 select * from web_user
+select * from web_product
+select * from web_product
+select * from WEB_USER2
+
+insert into WEB_USER2 values('이재익','test123',25,'목동')

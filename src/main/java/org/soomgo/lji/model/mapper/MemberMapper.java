@@ -1,7 +1,7 @@
 package org.soomgo.lji.model.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.soomgo.lji.domain.User;
+import org.soomgo.lji.domain.UserVO;
 
 /***
  * 
@@ -14,6 +14,5 @@ import org.soomgo.lji.domain.User;
 @Mapper
 public interface MemberMapper {
 	
-	public int getTotalMember();
-	User addUser();
+	public UserVO addUser();
 }

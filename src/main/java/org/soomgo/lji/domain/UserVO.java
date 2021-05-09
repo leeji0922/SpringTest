@@ -1,6 +1,6 @@
 package org.soomgo.lji.domain;
 
-public class User {
+public class UserVO {
 	private String userName;
 	private int userAge;
 	private String userAddress;
@@ -30,14 +30,14 @@ public class User {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public User(String userName, int userAge, String userAddress, String userId) {
+	public UserVO(String userName, int userAge, String userAddress, String userId) {
 		super();
 		this.userName = userName;
 		this.userAge = userAge;
 		this.userAddress = userAddress;
 		this.userId = userId;
 	}
-	public User() {
+	public UserVO() {
 		super();
 	}
 	@Override
