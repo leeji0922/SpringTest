@@ -14,7 +14,7 @@ public class UserController {
 	@Resource
 	private MemberMapper memberMapper;
 	
-	@RequestMapping(value = "/member.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/member.do", method = RequestMethod.POST)
 	public String member(Model model) {
 		model.addAttribute("addUser",memberMapper.addUser());
 		return "member";

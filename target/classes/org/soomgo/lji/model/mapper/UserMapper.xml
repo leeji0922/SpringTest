@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
  <mapper namespace="org.soomgo.lji.model.mapper.MemberMapper">
- 	<select id="addUser" resultType = "User">
+ 	<select id="addUser" resultType = "UserVO">
  		INSERT INTO (SELECT name,id,age,address
 			FROM web_user2
 			WHERE id IS NOT NULL

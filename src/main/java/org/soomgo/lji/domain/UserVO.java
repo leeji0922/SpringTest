@@ -42,7 +42,7 @@ public class UserVO {
 	}
 	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", userAge=" + userAge + ", userAddress=" + userAddress + ", userId="
+		return "UserVO [userName=" + userName + ", userAge=" + userAge + ", userAddress=" + userAddress + ", userId="
 				+ userId + "]";
 	}
 	
