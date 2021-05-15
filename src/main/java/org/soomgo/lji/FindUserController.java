@@ -14,28 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-public class UserController {
+public class FindUserController {
 
 	@Resource
 	private MemberMapper memberMapper;
 	
-	@RequestMapping(value = "/member.do", method = {RequestMethod.POST})
-	public String member(UserVO vo) {
-		System.out.println(vo);
-		memberMapper.addUser(vo);
-		return "member";
-		
-	}
-	@RequestMapping(value = "/login.do", method = {RequestMethod.POST})
-	public String login(FindUserVO vo,HttpSession session) {
-		//아이디 패스워드가 일치한 경우
-		FindUserVO mvo = memberMapper.login(vo);
-		if(mvo != null) {
-			//일치해서 해당 유저정보를 session에 저장
-			session.setAttribute("mvo",mvo );
-			//session.invalidate(); 세션 초기화
-		}
-		
-		return "redirect:home.do";
+	@RequestMapping(value = "/findmember.do", method = {RequestMethod.GET})
+	public String findMember(String id,Model model) {
+		FindUserVO vo = memberMapper.findUser(id);
+		//해당 회원이 존재하는 경우
+		if(vo!=null)
+			model.addAttribute("mvo",vo);	//회원이 존재한다면 회원정보를 findmember.jsp로 전달한다.
+		return "findmember";
 	}
 }

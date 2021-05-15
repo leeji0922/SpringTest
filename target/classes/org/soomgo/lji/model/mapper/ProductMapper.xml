@@ -10,4 +10,7 @@
  	<select id="showAllStock" resultType = "int">
  		select sum(STOCK) from web_product
  	</select>
+	<select id="showProduct" resultType="ProductVo">
+		select * from web_product
+	</select>
  </mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="org.soomgo.lji.model.mapper.MemberMapper">
+  	<insert id="addUser" parameterType="UserVo">
+		insert into web_user3
+    	values (#{userName},#{userId},#{userPassword},#{userAge},#{userAddress})
+	</insert>
+	<select id="findUser" resultType="FindUserVO">
+		select * from web_user3
+		where ID = #{id}
+	</select>
+	<select id="login" resultType="FindUserVO">
+		select id,name,age,address from web_user3
+		where ID = #{id} and password=#{password}
+	</select>
+	<update id="editUser" parameterType="FindUserVo">
+		update web_user3
+		set	name = #{name},
+			age = #{age},
+			address = #{address}
+		where id = #{id}
+	</update>
+</mapper>

@@ -8,16 +8,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Member</title>
+<title>FindMember</title>
 </head>
 <body>
-	<h1>회원가입 성공!</h1>
-	<form action="home.do">
-	<table>
-		<tr>
-			<input type="submit" value="확인">
-		</tr>
-	</table>
-</form>
+	<p>찾으신 회원의 정보 : ${mvo}</p>
 </body>
 </html>

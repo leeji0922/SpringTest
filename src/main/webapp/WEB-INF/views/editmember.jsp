@@ -8,16 +8,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Member</title>
+<title>FindMember</title>
 </head>
 <body>
-	<h1>회원가입 성공!</h1>
-	<form action="home.do">
-	<table>
-		<tr>
-			<input type="submit" value="확인">
-		</tr>
-	</table>
-</form>
+	<h1>회원 정보 수정 완료!</h1>
 </body>
 </html>

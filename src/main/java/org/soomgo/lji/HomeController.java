@@ -28,7 +28,7 @@ public class HomeController {
 	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public String home(Model model) { //home 메소드를 생성
 		model.addAttribute("totalProductNum",productMapper.totalProductNum()); //View로 넘기기
-//		model.addAttribute("showProduct",productMapper.showProduct()); //View로 넘기기
+		model.addAttribute("showProduct",productMapper.showProduct()); //View로 넘기기
 		model.addAttribute("showAllStock",productMapper.showAllStock()); //View로 넘기기
 		return "home"; //home 메소드의 값을 리턴
 	}
